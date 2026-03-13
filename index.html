@@ -12,7 +12,6 @@ html, body{
     background:white;
     font-family:Arial, Helvetica, sans-serif;
     overflow:hidden;
-    font: red;
 }
 
 .center-box{
@@ -21,34 +20,36 @@ html, body{
     left:50%;
     transform:translate(-50%,-50%);
     text-align:center;
-    color:white;
 }
 
 h1{
-    font-family:'Playfair Display', serif;
-    font-size:72px;
+    font-size:60px;
     margin:0;
     color:#d4af37;
     letter-spacing:2px;
-    animation:fadeIn 1.5s ease;
 }
 
 p{
     font-size:30px;
-    opacity:0.8;
+    opacity:0.9;
     color:red;
+    margin:10px 0;
 }
 
-@keyframes pop{
-    0%{transform:scale(0.5);opacity:0}
-    100%{transform:scale(1);opacity:1}
+.center-box img{
+    display:block;
+    margin:25px auto;
+    max-width:350px;
+    width:100%;
+    height:auto;
+    border-radius:12px;
 }
 
 .confetti{
     position:absolute;
     width:10px;
     height:10px;
-    opacity:0.8;
+    opacity:0.9;
     animation:fall linear forwards;
 }
 
@@ -63,9 +64,11 @@ p{
 <body>
 
 <div class="center-box">
-    <h1>🎉 Congratulations!🎉</h1>
-    <img src="https://raw.githubusercontent.com/peshperez/congats/refs/heads/main/fampic.JPG">
-    <p>You won a Stagering 10K via GCash</p>
+    <h1>🎉 Congratulations! 🎉</h1>
+
+    <img src="https://raw.githubusercontent.com/peshperez/congats/main/fampic.JPG">
+
+    <p>You won a Staggering 10K via GCash</p>
     <p>Dahil very good ka this year</p>
 </div>
 
@@ -91,7 +94,4 @@ setInterval(createConfetti,120);
 </script>
 
 </body>
-
 </html>
-
-
