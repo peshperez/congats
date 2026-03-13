@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Congratulations!</title>
+
+<style>
+html, body{
+    margin:0;
+    padding:0;
+    height:100%;
+    background:white;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow:hidden;
+    font: red;
+}
+
+.center-box{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    color:white;
+}
+
+h1{
+    font-family:'Playfair Display', serif;
+    font-size:72px;
+    margin:0;
+    color:#d4af37;
+    letter-spacing:2px;
+    animation:fadeIn 1.5s ease;
+}
+
+p{
+    font-size:30px;
+    opacity:0.8;
+    color:red;
+}
+
+@keyframes pop{
+    0%{transform:scale(0.5);opacity:0}
+    100%{transform:scale(1);opacity:1}
+}
+
+.confetti{
+    position:absolute;
+    width:10px;
+    height:10px;
+    opacity:0.8;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="center-box">
+    <h1>🎉 Congratulations!🎉</h1>
+    <p>You won a Stagering 10K via GCash</p>
+    <p>Dahil very good ka this year</p>
+</div>
+
+<script>
+const colors = ["#ff4d4d","#ffd24d","#4dff88","#4db8ff","#b84dff","#ffffff"];
+
+function createConfetti(){
+    const confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+
+    confetti.style.left = Math.random()*100 + "vw";
+    confetti.style.background = colors[Math.floor(Math.random()*colors.length)];
+    confetti.style.animationDuration = (Math.random()*3+2) + "s";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(()=>{
+        confetti.remove();
+    },5000);
+}
+
+setInterval(createConfetti,120);
+</script>
+
+</body>
+</html>
