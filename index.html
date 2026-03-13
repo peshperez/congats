@@ -39,18 +39,17 @@ p{
 .center-box img{
     display:block;
     margin:20px auto;
-    width:220px;      /* fixed size */
+    width:270px;      /* main image size */
     height:auto;
     border-radius:12px;
 }
 
-/* CONFETTI */
+/* CONFETTI IMAGE */
 .confetti{
     position:absolute;
-    width:10px;
-    height:10px;
     opacity:0.9;
     animation:fall linear forwards;
+    pointer-events:none; /* ensures clicks go through */
 }
 
 @keyframes fall{
@@ -68,22 +67,27 @@ p{
 
     <img src="https://raw.githubusercontent.com/peshperez/congats/main/fampic.JPG">
 
-    <p>You won a staggering <b style="color: red;">₱10K</b> via GCash!</p>
-    <p>Dahil <b style="color: red;">₱80K</b> ang Bonus ni Daddy</p>
-    <p>May Bonus ka din!</p>
+    <p>You won a staggering <b style="color: red">₱10K</b> via GCash!</p>
+    <p>Dahil <b style="color: red">₱80K</b> ang Bonus ni Daddy</p>
+	<p>may <b style="color: red">BONUS</b> ka din!</p>
     <br>
     <p>AYIN Baby ko yan! + MAVI Bebe ko yan!</p>
 </div>
 
 <script>
-const colors = ["#ff4d4d","#ffd24d","#4dff88","#4db8ff","#b84dff","#ffffff"];
+// GCash logo confetti
+const confettiImages = [
+  "https://raw.githubusercontent.com/peshperez/congats/main/GCash.png"
+];
 
 function createConfetti(){
-    const confetti = document.createElement("div");
+    const confetti = document.createElement("img");
+    confetti.src = confettiImages[Math.floor(Math.random()*confettiImages.length)];
     confetti.classList.add("confetti");
 
     confetti.style.left = Math.random()*100 + "vw";
-    confetti.style.background = colors[Math.floor(Math.random()*colors.length)];
+    confetti.style.width = (Math.random()*15 + 15) + "px"; // random size 15-30px
+    confetti.style.height = "auto";
     confetti.style.animationDuration = (Math.random()*3+2) + "s";
 
     document.body.appendChild(confetti);
@@ -98,7 +102,3 @@ setInterval(createConfetti,120);
 
 </body>
 </html>
-
-
-
-
